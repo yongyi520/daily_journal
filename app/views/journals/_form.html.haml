@@ -1,0 +1,43 @@
+= simple_form_for @journal, html: {multipart: true} do |f|
+  - if @journal.errors.any?
+    #errors
+      %p
+        = @journal.errors.count
+        Prevented this journal from saving
+      %ul
+        - @journal.errors.full_messages.each do |msg|
+          %li=msg
+
+  .content
+    .content_top
+      = f.input :date, input_html: {class: "form-control date_input"}
+      = f.input :improvement, input_html: {class: "form-control improvement_input"}
+    .content_mid.clearfix
+      .left.journal_questions
+        = f.input :q1answers, label: "What's my wanted outcome?", input_html: {class: "form-control qa_input"}
+        = f.input :q2answers, label: "Did I give it my all today?", input_html: {class: "form-control qa_input"}
+        = f.input :q3answers, label: "Was today meaningful?", input_html: {class: "form-control qa_input"}
+        = f.input :q4answers, label: "Was I doing what I love?", input_html: {class: "form-control qa_input"}
+      .right
+        .form-group.journal_win
+          %label.text.control-label
+            Wins of the Day
+          = f.simple_fields_for :wins do |win|
+            = render 'win_fields', f: win
+          .links
+            = link_to_add_association 'Add', f, :wins, class: "btn"
+
+        .form-group.journal_lesson.clearfix
+          %label.text.control-label
+            Lessons of the Day
+          = f.simple_fields_for :lessons do |lesson|
+            = render 'lesson_fields', f: lesson
+          .links
+            = link_to_add_association 'Add', f, :lessons, class: "btn"
+
+    .content_bot
+      = f.input :content, label: "Daily Journal", input_html: {class: "form-control content_input"}
+  = f.button :submit
+
+
+

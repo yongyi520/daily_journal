@@ -1,0 +1,52 @@
+%section#show_page
+  .wrapper
+    .time_title.clearfix
+      %span#year= @year
+      %span#month= @month
+      %span#day= @day
+    .content
+      .content_top
+        .content_section
+          .content_header
+            %h2 Improvements For Tomorrow
+          .content_body
+            = simple_format(@journal.improvement)
+      .content_mid.clearfix
+        .left
+          .content_section
+            .content_header
+              %h2 Questions of the Day
+            .content_body
+              %h3.content_sub_header What is my wanted outcome?
+              = simple_format(@journal.q1answers)
+              %h3.content_sub_header Did I give it my all today?
+              = simple_format(@journal.q2answers)
+              %h3.content_sub_header Was today meaningful?
+              = simple_format(@journal.q3answers)
+              %h3.content_sub_header Was I doing what I love?
+              = simple_format(@journal.q4answers)
+        .right.right_show_fix
+          .content_section
+            .content_header
+              %h2 Wins of the Day
+            .content_body
+              %h4 My wins today are that...
+              %ul.content_list_group
+                - @journal.wins.each do |win|
+                  %li.content_list_item= win.win
+          .content_section
+            .content_header
+              %h2 Lessons of the Day
+            .content_body
+              %h4 I learned that...
+              %ul.content_list_group
+                - @journal.lessons.each do |lesson|
+                  %li.content_list_item= lesson.lesson
+      .content_bot
+        .content_section
+          .content_header
+            %h2 Daily Journal
+          .content_body= simple_format(@journal.content)
+      .row.button_group
+        = link_to "Edit", edit_journal_path, class: "btn"
+        = link_to "Delete", journal_path, method: :delete, data: {confirm: "Are you sure?"}, class: "btn"

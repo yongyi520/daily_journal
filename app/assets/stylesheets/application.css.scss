@@ -1,0 +1,427 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
+ * or any plugin's vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any styles
+ * defined in the other CSS/SCSS files in this directory. It is generally better to create a new
+ * file per style scope.
+ *
+ *= require_tree .
+ *= require_self
+ */
+
+@import "bootstrap-sprockets";
+@import "bootstrap";
+
+$main: #99e58a;
+$main_rgba: rgba(153, 229, 138, .164);
+$main_rgba_nontransparent: rgba(153, 229, 138, .164);
+$secondary: #accaa5;
+$secondary_rgba: rgba(172,202,165,.164);
+$tertiary: #deeada;
+$tertiary_rgba: rgba(222,234,218,.164);
+$border_rgba: rgba(255,255,255, .164);
+$footer_background: #010001;
+
+* {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  margin:0;
+  padding:0;
+}
+
+body {
+  background-image: url(night-sky.jpg);
+  -webkit-background-size:cover;
+  background-size:cover;
+}
+
+.clearfix:before, .clearfix:after {
+  content: ' ';
+  display: block;
+}
+
+.clearfix:after {
+  clear: both;
+}
+
+.wrapper {
+  width:80%;
+  margin:0 auto;
+}
+
+.center {
+  text-align: center;
+}
+
+.hide {
+  display: none;
+}
+
+#header {
+  width:100%;
+  background-color: rgba(153,229,138,.164);
+  padding:1em 0;
+  .logo {
+    float: left;
+    a {
+      color: $main;
+      font-size:2em;
+      font-weight:700;
+      text-decoration: none;
+    }
+  }
+  nav {
+    float: right;
+    padding-top:.7em;
+    a {
+      text-decoration: none;
+      padding:0 1em;
+      color: $secondary;
+    }
+  }
+}
+
+.alert {
+  color: $tertiary;
+  text-align: center;
+  margin:1em 0;
+}
+
+footer {
+  margin-top:2em;
+  padding:3em 0;
+  background-color: $footer_background;
+  width:100%;
+  h4 {
+    text-align: center;
+    color: $tertiary;
+  }
+}
+
+.directions, .time_title{
+  color: $secondary;
+  font-weight:bold;
+  font-size:5em;
+  span {
+    float: right;
+    width:30%;
+    margin:.75em 1.66%;
+    text-align: center;
+  }
+}
+
+.border {
+  border:1px solid $border_rgba;
+}
+
+.full_width {
+  span {
+    width:100%;
+    font-size:.5em;
+  }
+}
+
+.btn {
+  background-color: transparent;
+  color: $tertiary;
+  border:1px solid $border_rgba;
+  text-align: center;
+  width:10em;
+  &:hover {
+    color: $main;
+    font-weight:700;
+    background-color: transparent;
+    box-shadow: 0 0 8px $main_rgba_nontransparent;
+    border:1px solid $main;
+  }
+}
+
+#home_page{
+
+  #choose_year_panel, #choose_month_panel {
+    font-weight:700;
+    text-align: center;
+    .row {
+      margin-bottom:1em;
+      a {
+        text-decoration: none;
+      }
+      .year_box, .month_box_left, .month_box_right, .month_box_mid {
+        display: table;
+        width:27%;
+        height:250px;
+        background-color: $secondary_rgba;
+        float: left;
+        margin:0 3% 1em 3%;
+        border-radius: 2%;
+        border:1px solid $border_rgba;
+        -webkit-transition: all .5s ease-in-out;
+        -moz-transition: all .5s ease-in-out ;
+        -ms-transition: all .5s ease-in-out ;
+        -o-transition: all .5s ease-in-out ;
+        transition: all .5s ease-in-out ;
+        overflow: hidden;
+        h3 {
+          -webkit-transition: all .5s ease-in-out;
+          -moz-transition: all .5s ease-in-out ;
+          -ms-transition: all .5s ease-in-out ;
+          -o-transition: all .5s ease-in-out ;
+          transition: all .5s ease-in-out ;
+          color: $tertiary;
+          display: table-cell;
+          vertical-align: middle;
+          font-size:1.75em;
+        }
+        &:hover {
+          -webkit-transform: scale(1.02,1.02);
+          -moz-transform: scale(1.02,1.02);
+          -ms-transform: scale(1.02,1.02);
+          -o-transform: scale(1.02,1.02);
+          transform: scale(1.02,1.02);
+          h3 {
+            color: $main;
+          }
+        }
+      }
+
+    }
+  }
+  #choose_day_panel {
+    .weekday_label_bar {
+      background-color: $secondary_rgba;
+      height:150px;
+      display: table;
+      width:100%;
+      margin-bottom:1.5em;
+      #weekdays_group {
+        display: table-cell;
+        vertical-align: middle;
+        .weekday_label {
+          list-style: none;
+          float: left;
+          font-size:2em;
+          width:14.28%;
+          text-align: center;
+          color: $secondary;
+          font-weight:700;
+        }
+      }
+    }
+    .days_panel {
+      .days_row{
+        margin-bottom:.25em;
+        width:100%;
+        .day_box {
+          width: 13.858%;
+          margin: 0 .25%;
+          background-color: $secondary_rgba;
+          float: left;
+          height:150px;
+          list-style: none;
+          font-size:2em;
+          color: $tertiary;
+          text-align: center;
+          padding: 50px 0 50px 0;
+          text-decoration: none;
+        }
+        .first_day_box {
+          margin-left:0;
+        }
+        .last_day_box {
+          margin-right:0;
+        }
+      }
+    }
+  }
+  #journal_index_panel {
+    .journal_listing {
+      margin: 0 auto;
+      h1 {
+        text-align: center;
+        font-size:2em;
+        color: $secondary;
+        font-weight:700;
+        margin:2em 0;
+      }
+      a {
+        display: block;
+        text-align: center;
+        margin:0 0 1em 0;
+        background-color: $tertiary_rgba;
+        color: $tertiary;
+        padding:1em 0;
+        border:1px solid $border_rgba;
+        border-radius: 1em;
+        .journal_item {
+          padding:1em 1em;
+          display: table;
+          width:100%;
+          h2 {
+            display: table-cell;
+            vertical-align: middle;
+          }
+          span {
+            display: table-cell;
+            vertical-align: middle;
+          }
+        }
+        &:hover {
+          text-decoration: none;
+          color: $main;
+        }
+      }
+
+    }
+  }
+}
+
+//------- Show Page ----------
+#show_page, #edit_journal_page, #new_journal_page {
+  .content {
+    text-align: center;
+    color: $tertiary;
+    .content_top, .content_mid, .content_bot {
+      margin:1em 0 2em 0;
+    }
+    .content_mid {
+      .left {
+        float: left;
+        width:60%;
+      }
+      .right {
+        float: right;
+        width:40%;
+      }
+      .right_show_fix {
+        margin-top:0.2%;
+      }
+    }
+    .content_section {
+      margin:1%;
+      .content_header {
+        background-color: $tertiary_rgba;
+        font-weight: 700;
+        padding: 1em 0;
+        border: 1px solid $border_rgba;
+      }
+      .content_body {
+        text-align: left;
+        margin: 0 2em;
+        padding:1em 0;
+        line-height:2;
+        .content_sub_header {
+
+        }
+        .content_list_group {
+          .content_list_item {
+            margin-left:1.75em;
+          }
+        }
+      }
+    }
+  }
+  .button_group {
+    .btn {
+      margin:0 1em;
+    }
+  }
+}
+
+//--------- Edit Journal Styling --------------
+#edit_journal_page, #new_journal_page {
+  h1 {
+    text-align: center;
+    color: $secondary;
+    font-weight:700;
+    margin:1em 0;
+  }
+}
+
+// --------------- Forms -------------------
+.simple_form {
+  label {
+    color: $tertiary;
+    margin:1em 0;
+    font-size:1.5em;
+  }
+  .journal_questions {
+    text-align: left;
+  }
+  .journal_win, .journal_lesson {
+    .form-inline {
+      text-align: left;
+      .form-group {
+        width:100%;
+        margin: 0 0 1em 0;
+        label {
+          text-align: center;
+          margin:0;
+          width:15%;
+          font-size:1em;
+        }
+        textarea {
+          width: 85%;
+          background-color: transparent;
+          border:1px solid $border_rgba;
+          color: $tertiary;
+          &:focus {
+            box-shadow: 0 0 8px $main_rgba_nontransparent;
+          }
+        }
+      }
+    }
+    .remove_btn {
+      float: right;
+      margin-bottom:1em;
+    }
+  }
+  .journal_date, .journal_content, .journal_improvement {
+    color: $tertiary;
+  }
+  .journal_date {
+    .date_input {
+      &:focus {
+        box-shadow: 0 0 8px rgba(153, 229, 138, 1);
+        border-color: $border_rgba;
+      }
+    }
+
+  }
+  .journal_content, .journal_improvement, .journal_questions, .user_email, .user_password {
+    .content_input, .improvement_input, .qa_input, input[type="email"], input[type="password"] {
+      background-color: transparent;
+      border:1px solid $border_rgba;
+      color: $tertiary;
+      line-height:2;
+      &:focus {
+        box-shadow: 0 0 8px $main_rgba_nontransparent;
+      }
+    }
+    .qa_input {
+      height:100px;
+    }
+  }
+
+  .journal_improvement {
+    .improvement_input {
+      height:100px;
+    }
+  }
+  .journal_content {
+    .content_input {
+      height:250px;
+    }
+  }
+}
+
+.user_form_title {
+  color: $secondary;
+  font-weight:700;
+  text-align: center;
+}

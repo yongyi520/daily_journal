@@ -1,0 +1,11 @@
+#journal_index_panel
+  .wrapper
+    .journal_listing
+      %h1 Daily Journal(s)
+      - @journals.each do |journal|
+        = link_to journal do
+          .journal_item.clearfix
+            %h2= journal.date.strftime("%B %d, %Y")
+            %span
+              By
+              = " ".concat(journal.user.email)

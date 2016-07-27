@@ -1,0 +1,10 @@
+%section#home_page
+  .wrapper
+    - if params[:year].blank?
+      = render 'journals/index/choose_year'
+    - elsif params[:month].blank?
+      = render 'journals/index/choose_year_month'
+    - elsif params[:day].blank?
+      = render 'journals/index/choose_year_month_day'
+    - elsif params[:year].present? && params[:month].present? && params[:day].present?
+      = render 'journals/index/display_journals'

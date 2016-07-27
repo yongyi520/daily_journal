@@ -1,0 +1,35 @@
+.time_title.clearfix
+  %span#year=@year
+  %span#month
+  %span#day
+.directions.hide.clearfix
+  %span Choose a Month
+#choose_month_panel
+  .row.clearfix
+    = link_to root_path(:year=>params[:year], :month=>"Jan"), class: "month_box_left" do
+      %h3 January
+    = link_to root_path(:year=>params[:year], :month=>"02"), class: "month_box_mid" do
+      %h3 February
+    = link_to root_path(:year=>params[:year], :month=>"03"), class: "month_box_right" do
+      %h3 March
+  .row.clearfix
+    = link_to root_path(:year=>params[:year], :month=>"04"), class: "month_box_left" do
+      %h3 April
+    = link_to root_path(:year=>params[:year], :month=>"05"), class: "month_box_mid" do
+      %h3 May
+    = link_to root_path(:year=>params[:year], :month=>"06"), class: "month_box_right" do
+      %h3 June
+  .row.clearfix
+    = link_to root_path(:year=>params[:year], :month=>"07"), class: "month_box_left" do
+      %h3 July
+    = link_to root_path(:year=>params[:year], :month=>"08"), class: "month_box_mid" do
+      %h3 August
+    = link_to root_path(:year=>params[:year], :month=>"09"), class: "month_box_right" do
+      %h3 September
+  .row.clearfix
+    = link_to root_path(:year=>params[:year], :month=>"10"), class: "month_box_left" do
+      %h3 October
+    = link_to root_path(:year=>params[:year], :month=>"11"), class: "month_box_mid" do
+      %h3 November
+    = link_to root_path(:year=>params[:year], :month=>"12"), class: "month_box_right" do
+      %h3 December

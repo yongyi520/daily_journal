@@ -1,0 +1,43 @@
+.time_title.clearfix
+  %span#year=@year
+  %span#month=@month_string
+  %span#day
+.directions.hide.full_width.clearfix
+  %span Choose a Day
+#choose_day_panel
+  .weekday_label_bar
+    %ul#weekdays_group.clearfix
+      %li.weekday_label Sun
+      %li.weekday_label Mon
+      %li.weekday_label Tue
+      %li.weekday_label Wed
+      %li.weekday_label Thu
+      %li.weekday_label Fri
+      %li.weekday_label Sat
+  .days_panel
+    - @display_dates.each do |week|
+      %ul.days_row.clearfix
+        - week.each_with_index do |weekday, index|
+          - if index.equal?(0)
+            - if weekday.blank?
+              %li.day_box.first_day_box
+            - else
+              = link_to root_path(:year=>params[:year], :month=>params[:month], :day=>weekday.to_s) do
+                %li.day_box.first_day_box= weekday.to_s
+          - elsif index.equal?(6)
+            - if weekday.blank?
+              %li.day_box.last_day_box
+            - else
+              = link_to root_path(:year=>params[:year], :month=>params[:month], :day=>weekday.to_s) do
+                %li.day_box.last_day_box= weekday.to_s
+          - else
+            - if weekday.blank?
+              %li.day_box
+            - else
+              = link_to root_path(:year=>params[:year], :month=>params[:month], :day=>weekday.to_s) do
+                %li.day_box= weekday.to_s
+= render 'journals/index/display_journals'
+
+
+
+
