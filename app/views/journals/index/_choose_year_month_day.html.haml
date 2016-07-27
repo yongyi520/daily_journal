@@ -22,20 +22,20 @@
             - if weekday.blank?
               %li.day_box.first_day_box
             - else
-              = link_to root_path(:year=>params[:year], :month=>params[:month], :day=>weekday.to_s) do
-                %li.day_box.first_day_box= weekday.to_s.rjust(2, '0')
+              = link_to root_path(:year=>params[:year], :month=>params[:month], :day=>weekday.to_s.rjust(2, '0')) do
+                %li.day_box.first_day_box= weekday.to_s
           - elsif index.equal?(6)
             - if weekday.blank?
               %li.day_box.last_day_box
             - else
-              = link_to root_path(:year=>params[:year], :month=>params[:month], :day=>weekday.to_s) do
-                %li.day_box.last_day_box= weekday.to_s.rjust(2, '0')
+              = link_to root_path(:year=>params[:year], :month=>params[:month], :day=>weekday.to_s.rjust(2, '0')) do
+                %li.day_box.last_day_box= weekday.to_s
           - else
             - if weekday.blank?
               %li.day_box
             - else
-              = link_to root_path(:year=>params[:year], :month=>params[:month], :day=>weekday.to_s) do
-                %li.day_box= weekday.to_s.rjust(2, '0')
+              = link_to root_path(:year=>params[:year], :month=>params[:month], :day=>weekday.to_s.rjust(2, '0')) do
+                %li.day_box= weekday.to_s
 = render 'journals/index/display_journals'
 
 
