@@ -13,6 +13,7 @@ class JournalsController < ApplicationController
       @year = params[:year].to_s
       @month = params[:month].to_s
       @date_string = "" + @year + @month
+      @journals = Journal.where("to_char(date, 'YYYYMM')  = ?", @date_string).order("date DESC")
 
       @date = Date.parse(@date_string.concat("01"))
       @month_string = @date.strftime("%B")
