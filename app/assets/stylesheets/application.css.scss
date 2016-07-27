@@ -37,6 +37,7 @@ $footer_background: #010001;
 
 body {
   background-image: url(night-sky.jpg);
+  background-color: $footer_background;
   -webkit-background-size:cover;
   background-size:cover;
 }
