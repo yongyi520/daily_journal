@@ -36,7 +36,6 @@
             - else
               = link_to root_path(:year=>params[:year], :month=>params[:month], :day=>weekday.to_s.rjust(2, '0')) do
                 %li.day_box= weekday.to_s
-= render 'journals/index/display_journals'
 
 
 
