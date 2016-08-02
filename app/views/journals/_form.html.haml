@@ -12,6 +12,14 @@
     .content_top
       = f.input :date, input_html: {class: "form-control date_input"}
       = f.input :improvement, input_html: {class: "form-control improvement_input"}
+      .form-group.journal_metrics
+        %label.text.control-label
+          Daily Metrics
+        = f.simple_fields_for :metrics do |metric|
+          = render 'metric_fields', f: metric
+        .links
+          = link_to_add_association 'Add', f, :metrics, class: "btn add_metrics"
+
     .content_mid.clearfix
       .left.journal_questions
         = f.input :q1answers, label: "What's my wanted outcome?", input_html: {class: "form-control qa_input"}

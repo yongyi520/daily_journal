@@ -1,0 +1,11 @@
+.nested-fields
+  .row.clearfix
+    = f.input :happiness, input_html: {class: "form-control"}
+  .row.clearfix
+    = f.input :meditation, input_html: {class: "form-control"}
+  .row.clearfix
+    = f.input :task_complete, input_html: {class: "form-control"}
+  .row.clearfix
+    = f.input :masturbation, input_html: {class: "form-control"}
+
+  = link_to_remove_association "Remove", f, class: "btn remove_btn"

@@ -316,8 +316,26 @@ footer {
         margin: 0 2em;
         padding:1em 0;
         line-height:2;
+        .row {
+          width: 100%;
+          display: table;
+          margin: 0 auto;
+        }
         .content_sub_header {
-
+          display: table-cell;
+          vertical-align: middle;
+          width: 40%;
+          text-align: left;
+          font-weight: 100;
+          color: rgba($tertiary, .75);
+        }
+        span {
+          display: table-cell;
+          vertical-align: middle;
+          width: 40%;
+          text-align: center;
+          font-size: 24px;
+          padding-left: 5em;
         }
         .content_list_group {
           .content_list_item {
@@ -353,6 +371,50 @@ footer {
   }
   .journal_questions {
     text-align: left;
+  }
+  .journal_metrics {
+    padding: 0 25%;
+    .remove_btn {
+      float: right;
+      margin: 0 10%;
+    }
+    .row {
+      .journal_metrics_happiness, .journal_metrics_masturbation {
+        label {
+          float: left;
+          font-weight: 400;
+        }
+        input[type="number"]{
+          width: 20%;
+          float: right;
+          font-size: 1.5em;
+          margin-top: .8em;
+          background: transparent;
+          color: $tertiary;
+          border: 1px solid $border_rgba;
+          &:focus {
+            box-shadow: 0 0 8px $main_rgba_nontransparent;
+          }
+        }
+      }
+      .journal_metrics_meditation, .journal_metrics_task_complete {
+        label {
+          width: 100%;
+          text-align: left;
+          padding: 0;
+          input[type="checkbox"]{
+            width: 10%;
+            right: 0px;
+            background: transparent;
+            color: $tertiary;
+            border: 1px solid $border_rgba;
+            &:focus {
+              box-shadow: 0 0 8px $main_rgba_nontransparent;
+            }
+          }
+        }
+      }
+    }
   }
   .journal_win, .journal_lesson {
     .form-inline {

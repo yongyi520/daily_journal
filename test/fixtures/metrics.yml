@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  happiness: 1
+  meditation: false
+  totd: false
+  masturbation: 1
+  journal_id: 
+
+two:
+  happiness: 1
+  meditation: false
+  totd: false
+  masturbation: 1
+  journal_id: 

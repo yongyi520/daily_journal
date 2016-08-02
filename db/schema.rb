@@ -11,59 +11,75 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160727072648) do
+ActiveRecord::Schema.define(version: 20160802091853) do
+
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
 
   create_table "journals", force: :cascade do |t|
-    t.text     "content",     limit: 65535
-    t.datetime "created_at",                null: false
-    t.datetime "updated_at",                null: false
+    t.text     "content"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
     t.date     "date"
-    t.text     "improvement", limit: 65535
-    t.text     "q1answers",   limit: 65535
-    t.text     "q2answers",   limit: 65535
-    t.text     "q3answers",   limit: 65535
-    t.text     "q4answers",   limit: 65535
-    t.integer  "user_id",     limit: 4
+    t.text     "improvement"
+    t.text     "q1answers"
+    t.text     "q2answers"
+    t.text     "q3answers"
+    t.text     "q4answers"
+    t.integer  "user_id"
   end
 
   add_index "journals", ["user_id"], name: "index_journals_on_user_id", using: :btree
 
   create_table "lessons", force: :cascade do |t|
-    t.text     "lesson",     limit: 65535
-    t.integer  "journal_id", limit: 4
-    t.datetime "created_at",               null: false
-    t.datetime "updated_at",               null: false
+    t.text     "lesson"
+    t.integer  "journal_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   add_index "lessons", ["journal_id"], name: "index_lessons_on_journal_id", using: :btree
 
+  create_table "metrics", force: :cascade do |t|
+    t.integer  "happiness"
+    t.boolean  "meditation"
+    t.boolean  "task_complete"
+    t.integer  "masturbation"
+    t.integer  "journal_id"
+    t.datetime "created_at",    null: false
+    t.datetime "updated_at",    null: false
+  end
+
+  add_index "metrics", ["journal_id"], name: "index_metrics_on_journal_id", using: :btree
+
   create_table "users", force: :cascade do |t|
-    t.string   "email",                  limit: 255, default: "", null: false
-    t.string   "encrypted_password",     limit: 255, default: "", null: false
-    t.string   "reset_password_token",   limit: 255
+    t.string   "email",                  default: "", null: false
+    t.string   "encrypted_password",     default: "", null: false
+    t.string   "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
-    t.integer  "sign_in_count",          limit: 4,   default: 0,  null: false
+    t.integer  "sign_in_count",          default: 0,  null: false
     t.datetime "current_sign_in_at"
     t.datetime "last_sign_in_at"
-    t.string   "current_sign_in_ip",     limit: 255
-    t.string   "last_sign_in_ip",        limit: 255
-    t.datetime "created_at",                                      null: false
-    t.datetime "updated_at",                                      null: false
+    t.string   "current_sign_in_ip"
+    t.string   "last_sign_in_ip"
+    t.datetime "created_at",                          null: false
+    t.datetime "updated_at",                          null: false
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
   add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
 
   create_table "wins", force: :cascade do |t|
-    t.text     "win",        limit: 65535
-    t.integer  "journal_id", limit: 4
-    t.datetime "created_at",               null: false
-    t.datetime "updated_at",               null: false
+    t.text     "win"
+    t.integer  "journal_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   add_index "wins", ["journal_id"], name: "index_wins_on_journal_id", using: :btree
 
   add_foreign_key "lessons", "journals"
+  add_foreign_key "metrics", "journals"
   add_foreign_key "wins", "journals"
 end
