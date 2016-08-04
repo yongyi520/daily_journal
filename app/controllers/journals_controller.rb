@@ -66,8 +66,7 @@ class JournalsController < ApplicationController
 
   private
   def journal_params
-    params.require(:journal).permit(:date, :content, :improvement, :q1answers, :q2answers, :q3answers, :q4answers, wins_attributes: [:id, :win, :_destroy], lessons_attributes: [:id, :lesson, :_destroy],
-                                      metrics_attributes: [:id, :happiness, :meditation, :task_complete, :masturbation, :_destroy])
+    params.require(:journal).permit(:date, :content, :improvement, :happiness, :meditation, :task_complete, :masturbation, :q1answers, :q2answers, :q3answers, :q4answers, wins_attributes: [:id, :win, :_destroy], lessons_attributes: [:id, :lesson, :_destroy])
   end
 
   def find_journal

@@ -11,15 +11,15 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160802091853) do
+ActiveRecord::Schema.define(version: 20160804063948) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "journals", force: :cascade do |t|
     t.text     "content"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
+    t.datetime "created_at",    null: false
+    t.datetime "updated_at",    null: false
     t.date     "date"
     t.text     "improvement"
     t.text     "q1answers"
@@ -27,6 +27,10 @@ ActiveRecord::Schema.define(version: 20160802091853) do
     t.text     "q3answers"
     t.text     "q4answers"
     t.integer  "user_id"
+    t.integer  "happiness"
+    t.boolean  "meditation"
+    t.boolean  "task_complete"
+    t.integer  "masturbation"
   end
 
   add_index "journals", ["user_id"], name: "index_journals_on_user_id", using: :btree

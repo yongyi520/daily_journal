@@ -11,31 +11,30 @@
             %h2 Improvements For Tomorrow
           .content_body
             = simple_format(@journal.improvement)
-      - if @journal.metrics.present?
-        .content_top
-          .content_section
-            .content_header
-              %h2 Daily Metrics
-            .content_body
-              - @journal.metrics.each do |metric|
-                .row.clearfix
-                  %h3.content_sub_header Happiness Level (1-10)
-                  %span= metric.happiness
-                .row
-                  %h3.content_sub_header Did I meditate today?
-                  - if metric.happiness
-                    %span= "Yes"
-                  - else
-                    %span= "No"
-                .row
-                  %h3.content_sub_header Most Important Task Completed?
-                  - if metric.task_complete
-                    %span= "Yes"
-                  - else
-                    %span= "No"
-                .row
-                  %h3.content_sub_header Masburbation Count
-                  %span= metric.masturbation
+
+      .content_top
+        .content_section
+          .content_header
+            %h2 Daily Metrics
+          .content_body
+            .row.clearfix
+              %h3.content_sub_header Happiness Level (1-10)
+              %span= @journal.happiness
+            .row
+              %h3.content_sub_header Did I meditate today?
+              - if @journal.happiness
+                %span= "Yes"
+              - else
+                %span= "No"
+            .row
+              %h3.content_sub_header Most Important Task Completed?
+              - if @journal.task_complete
+                %span= "Yes"
+              - else
+                %span= "No"
+            .row
+              %h3.content_sub_header Masburbation Count
+              %span= @journal.masturbation
       .content_mid.clearfix
         .left
           .content_section

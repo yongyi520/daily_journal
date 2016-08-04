@@ -15,10 +15,18 @@
       .form-group.journal_metrics
         %label.text.control-label
           Daily Metrics
-        = f.simple_fields_for :metrics do |metric|
-          = render 'metric_fields', f: metric
-        .links
-          = link_to_add_association 'Add', f, :metrics, class: "btn add_metrics"
+        .row.clearfix
+          .journal_metrics_happiness
+            = f.input :happiness, input_html: {class: "form-control"}
+        .row.clearfix
+          .journal_metrics_meditation
+            = f.input :meditation, input_html: {class: "form-control"}
+        .row.clearfix
+          .journal_metrics_task_complete
+            = f.input :task_complete, input_html: {class: "form-control"}
+        .row.clearfix
+          .journal_metrics_masturbation
+            = f.input :masturbation, input_html: {class: "form-control"}
 
     .content_mid.clearfix
       .left.journal_questions

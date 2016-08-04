@@ -13,5 +13,8 @@
 //= require jquery
 //= require jquery_ujs
 //= require cocoon
+//= require Chart.bundle
+//= require highcharts
+//= require chartkick
 //= require turbolinks
 //= require_tree .

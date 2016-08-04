@@ -25,6 +25,13 @@ gem 'cocoon', '~> 1.2', '>= 1.2.9'
 gem 'week_of_month', '~> 1.2', '>= 1.2.3.4'
 gem 'bootstrap-sass', '~> 3.3', '>= 3.3.6'
 
+# for charts
+gem 'chartkick'
+# for helper group_by_date method
+gem 'groupdate'
+# for group functionality
+gem 'hightop'
+
 # Use jquery as the JavaScript library
 gem 'jquery-rails'
 # Turbolinks makes following links in your web application faster. Read more: https://github.com/rails/turbolinks

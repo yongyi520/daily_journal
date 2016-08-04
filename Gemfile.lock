@@ -47,6 +47,7 @@ GEM
       sass (>= 3.3.4)
     builder (3.2.2)
     byebug (9.0.5)
+    chartkick (2.0.1)
     cocoon (1.2.9)
     coffee-rails (4.1.1)
       coffee-script (>= 2.2.0)
@@ -69,8 +70,12 @@ GEM
     execjs (2.7.0)
     globalid (0.3.6)
       activesupport (>= 4.1.0)
+    groupdate (3.0.1)
+      activesupport (>= 3)
     haml (4.0.7)
       tilt
+    hightop (0.1.4)
+      activerecord
     html2haml (2.0.0)
       erubis (~> 2.7.0)
       haml (~> 4.0.0)
@@ -187,11 +192,14 @@ PLATFORMS
 DEPENDENCIES
   bootstrap-sass (~> 3.3, >= 3.3.6)
   byebug
+  chartkick
   cocoon (~> 1.2, >= 1.2.9)
   coffee-rails (~> 4.1.0)
   devise (~> 4.2)
   erb2haml (~> 0.1.5)
+  groupdate
   haml (~> 4.0, >= 4.0.7)
+  hightop
   jbuilder (~> 2.0)
   jquery-rails
   pg
