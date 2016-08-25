@@ -38,8 +38,9 @@ $footer_background: #010001;
 body {
   background-image: url(https://s3.amazonaws.com/webimagexu/night-sky.jpg);
   background-color: $footer_background;
-  -webkit-background-size:cover;
-  background-size:cover;
+  background-size: 100% auto;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
 }
 
 .clearfix:before, .clearfix:after {
